@@ -1,6 +1,11 @@
 const ConfigEnum = {
-  DB: 'DB_SERVER',
-  HOST: 'DB_HOST',
+  DB_HOST: 'DB_HOST',
+  DB_PORT: 'DB_PORT',
+  DB_USERNAME: 'DB_USERNAME',
+  DB_PASSWORD: 'DB_PASSWORD',
+  DB_DATABASE: 'DB_DATABASE',
+  DB_ENTITIES: 'DB_ENTITIES',
+  DB_SYNC: 'DB_SYNC',
 };
 
 export { ConfigEnum };
