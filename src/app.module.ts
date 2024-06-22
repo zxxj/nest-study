@@ -5,6 +5,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as dotenv from 'dotenv';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigEnum } from './enum/config.enum';
+import { User } from './user/user.entity';
+import { UserInfo } from './user/userinfo.entity';
+import { Roles } from './roles/roles.entity';
+import { Logs } from './logs/logs.entity';
 
 const envFilePath = `.env.${process.env.NODE_ENV || 'developement'}`;
 console.log(envFilePath);
@@ -30,8 +34,8 @@ console.log(envFilePath);
         port: configService.get(ConfigEnum.DB_PORT),
         username: configService.get(ConfigEnum.DB_USERNAME),
         password: configService.get(ConfigEnum.DB_PASSWORD),
-        database: 'testdb',
-        entities: [],
+        database: configService.get(ConfigEnum.DB_DATABASE),
+        entities: [User, UserInfo, Roles, Logs],
         synchronize: configService.get(ConfigEnum.DB_SYNC),
         logging: ['error'],
       }),
